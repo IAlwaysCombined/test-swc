@@ -1,5 +1,17 @@
 # test-swc
 
+## Клонируем .env файл
+```
+cp .env.example .env
+```
+## Генерируем токен приложения
+```
+php artisan key:generate
+```
+## Генерируем токен jwt
+```
+php artisan jwt:secret
+```
 ## Добавляем alias
 ```
 alias sail='bash vendor/bin/sail'
@@ -7,7 +19,7 @@ alias sail='bash vendor/bin/sail'
 
 ## Установка зависимостей
 ```
-alias sail='bash vendor/bin/sail'
+composer install
 ```
 
 ## Поднимаем докер
