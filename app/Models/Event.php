@@ -46,16 +46,16 @@ class Event extends Model
      * Relation to User entity
      * @return HasOne
      */
-    public function owner(): HasOne
+    public function user(): HasOne
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'owner_id');
     }
 
     /**
      * Relation to User entity (many to many)
      * @return BelongsToMany
      */
-    public function users(): BelongsToMany
+    public function participants(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'user_events');
     }

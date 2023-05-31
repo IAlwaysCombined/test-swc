@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\Auth\AuthController;
+use App\Http\Controllers\Api\V1\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,13 @@ Route::prefix('v1')->group(function () {
         Route::post('/logout', [AuthController::class, 'logout']);
         Route::post('/refresh', [AuthController::class, 'refresh']);
     });
+
+    Route::middleware('auth:api')->group(function () {
+        Route::prefix('/event')->group(function () {
+            Route::post('/add/to/event/{id}', [EventController::class, 'addToEvent']);
+            Route::post('/remove/from/event/{id}', [EventController::class, 'removeFormEvent']);
+        });
+        Route::apiResource('/event', EventController::class);
+    });
+
 });
