@@ -41,3 +41,8 @@ sail up
 ```
 sail down
 ```
+
+## Если у нас access denied
+```
+sail down --rmi all -v
+```
